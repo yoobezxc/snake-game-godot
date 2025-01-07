@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://coj0k8nf80a26"]
+
+[ext_resource type="Script" path="res://Scripts/snake.gd" id="1_ryhf5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkf6a"]
+size = Vector2(10, 10)
+
+[node name="Snake" type="Area2D" groups=["snake"]]
+script = ExtResource("1_ryhf5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 9.0
+offset_bottom = 9.0
+color = Color(0.329412, 0.831373, 0.835294, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xkf6a")

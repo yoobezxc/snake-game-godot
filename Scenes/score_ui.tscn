@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2p48i06eduyl"]
+
+[ext_resource type="FontFile" uid="uid://ok47nc3ayygh" path="res://Fonts/Micro5-Regular.ttf" id="1_54vj0"]
+[ext_resource type="Script" path="res://Scripts/score_ui.gd" id="1_eouto"]
+
+[node name="ScoreUI" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_eouto")
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0.666667)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_right = 160.0
+offset_bottom = 19.0
+grow_horizontal = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.144063, 0.144063, 0.144063, 1)
+
+[node name="Score" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_right = 23.0
+offset_bottom = 17.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.932915, 0.451896, 0.573428, 1)
+theme_override_fonts/font = ExtResource("1_54vj0")
+theme_override_font_sizes/font_size = 20
+text = "SCORE : 0"
+
+[node name="ESC" type="Label" parent="Control"]
+layout_mode = 1
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 60.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0.933333, 0.45098, 0.572549, 1)
+theme_override_fonts/font = ExtResource("1_54vj0")
+theme_override_font_sizes/font_size = 14
+text = "ESC : PAUSE"
+
+[node name="Window" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_top = 3.0
+offset_right = -6.0
+offset_bottom = 18.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.933333, 0.45098, 0.572549, 1)
+theme_override_fonts/font = ExtResource("1_54vj0")
+theme_override_font_sizes/font_size = 14
+text = "WINDOW : 1, 2"

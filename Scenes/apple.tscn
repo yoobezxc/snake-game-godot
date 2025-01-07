@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d05w8q8hmssa6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_px75t"]
+size = Vector2(10, 10)
+
+[node name="Apple" type="Area2D" groups=["food"]]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 9.0
+offset_bottom = 9.0
+color = Color(0.904847, 0.365503, 0.595565, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_px75t")

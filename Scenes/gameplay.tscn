@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbshajme8300w"]
+
+[ext_resource type="Script" path="res://Scripts/controller.gd" id="1_5i7pf"]
+[ext_resource type="Script" path="res://Scripts/gameplay.gd" id="1_6ubq6"]
+[ext_resource type="Script" path="res://Scripts/grid_map.gd" id="2_v1vcq"]
+[ext_resource type="Script" path="res://Scripts/apple_spawner.gd" id="3_o0trd"]
+[ext_resource type="Script" path="res://Scripts/snake_part.gd" id="4_r1862"]
+[ext_resource type="PackedScene" uid="uid://coj0k8nf80a26" path="res://Scenes/snake.tscn" id="5_1poop"]
+[ext_resource type="AudioStream" uid="uid://mx4f1liqvfhp" path="res://Audio/SFX/eating-sound-effect-36186.mp3" id="7_aa8ty"]
+[ext_resource type="AudioStream" uid="uid://0xbc6e3wsx1m" path="res://Audio/Music/drum-bass-loop-blue-box-drum_87bpm_C_minor.wav" id="8_uak8s"]
+
+[node name="Gameplay" type="CanvasLayer"]
+script = ExtResource("1_6ubq6")
+
+[node name="Controller" type="Node2D" parent="."]
+script = ExtResource("1_5i7pf")
+
+[node name="GridMap" type="Node2D" parent="."]
+script = ExtResource("2_v1vcq")
+
+[node name="AppleSpawner" type="Node2D" parent="."]
+script = ExtResource("3_o0trd")
+
+[node name="SnakePart" type="Node2D" parent="."]
+script = ExtResource("4_r1862")
+
+[node name="Snake" parent="SnakePart" instance=ExtResource("5_1poop")]
+position = Vector2(10, 30)
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_aa8ty")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("8_uak8s")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+
+[connection signal="area_entered" from="SnakePart/Snake" to="SnakePart/Snake" method="_on_area_entered"]
+[connection signal="finished" from="BackgroundMusic" to="." method="_on_background_music_finished"]
